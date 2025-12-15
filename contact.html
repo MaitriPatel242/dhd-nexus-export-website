@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DHD NEXUS | Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+  </head>
+  <body class="page page-contact">
+    <header class="site-header">
+      <div class="container nav-container">
+         <a href="index.html" class="logo" aria-label="DHD NEXUS home">
+           <img src="assets/header_logo.png" alt="DHD NEXUS logo" />
+         </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-transition page-content">
+      <section class="section section-page-header">
+        <div class="container">
+          <p class="eyebrow">Contact Us</p>
+          <h1>Let’s Streamline Your Global Supply Chain</h1>
+          <p class="lead">
+            Share your requirements and our export specialists will reach out
+            with tailored options for your dyes, pigments, and intermediates.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container contact-grid">
+          <div class="contact-card">
+            <h2>Send Us a Message</h2>
+            <form
+              id="contact-form"
+              class="contact-form"
+              action="mailto:info@dhdnexus.com"
+              method="post"
+              enctype="text/plain"
+            >
+              <div class="form-field">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="Name" required />
+              </div>
+              <div class="form-field">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="Company" />
+              </div>
+              <div class="form-field">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="Email" required />
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="Phone" />
+              </div>
+              <div class="form-field">
+                <label for="country">Country</label>
+                <input type="text" id="country" name="Country" />
+              </div>
+              <div class="form-field">
+                <label for="message">Message *</label>
+                <textarea
+                  id="message"
+                  name="Message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <p class="form-helper">
+                Fields marked with * are required. Your details are kept
+                confidential.
+              </p>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+              <p class="form-status" id="form-status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <aside class="contact-info">
+            <h2>Contact Details</h2>
+            <p>Call – <a href="tel:+916353538552">6353538552</a></p>
+            <p>
+              Mail –
+              <a href="mailto:info@dhdnexus.com">info@dhdnexus.com</a>
+            </p>
+            <p>
+              Home Town, New Ranip,<br />
+              Ahmedabad, Gujarat
+            </p>
+            <div class="contact-social">
+              <h3>Follow Us</h3>
+              <div class="footer-social">
+                <a href="#" aria-label="Instagram" class="social-icon">IG</a>
+                <a href="#" aria-label="LinkedIn" class="social-icon">in</a>
+              </div>
+            </div>
+            <div class="contact-map">
+              <h3>Global Reach</h3>
+              <p>
+                We manage exports across multiple regions. Share your destination
+                port and we’ll build a logistics plan that works for you.
+              </p>
+              <div class="map-placeholder">
+                <span class="map-circle map-circle--one"></span>
+                <span class="map-circle map-circle--two"></span>
+                <span class="map-circle map-circle--three"></span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+           <a href="index.html" class="logo logo-footer" aria-label="DHD NEXUS home">
+             <img src="assets/logo.png" alt="DHD NEXUS logo" />
+           </a>
+          <p class="footer-tagline">
+            Delivering excellence, on time, every time.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>Call – 6353538552</p>
+          <p>Mail – info@dhdnexus.com</p>
+          <p>Home Town, New Ranip, Ahmedabad, Gujarat</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram" class="social-icon">IG</a>
+            <a href="#" aria-label="LinkedIn" class="social-icon">in</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> DHD NEXUS. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+
