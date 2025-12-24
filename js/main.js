@@ -4,6 +4,117 @@ document.addEventListener("DOMContentLoaded", () => {
   const productModalTitle = document.getElementById("product-modal-title");
   const productModalBody = document.getElementById("product-modal-body");
 
+  const reactiveDyes = [
+    {
+      id: "rb-19",
+      name: "Reactive Blue 19",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive blue 19.png",
+      ciName: "Reactive Blue 19",
+      casNo: "2580-78-1",
+      substantivity: "Low",
+      solubility: "150",
+      dischargeability: "Fair",
+      shade: "Deep",
+    },
+    {
+      id: "rb-21",
+      name: "Reactive Blue 21",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Blue 21.png",
+      ciName: "Reactive Blue 21",
+      casNo: "12236-86-1",
+      substantivity: "High",
+      solubility: "80",
+      dischargeability: "Poor",
+      shade: "Medium",
+    },
+    {
+      id: "rb-28",
+      name: "Reactive Blue 28",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Blue 28.png",
+      ciName: "Reactive Blue 28",
+      casNo: "12225-45-5",
+      substantivity: "High",
+      solubility: "80",
+      dischargeability: "Good",
+      shade: "Deep",
+    },
+    {
+      id: "rb-194",
+      name: "Reactive Blue 194 ME2GL",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Blue 194 ME2GL.png",
+      ciName: "Reactive Blue 194",
+      casNo: "93050-78-3",
+      substantivity: "High",
+      solubility: "100",
+      dischargeability: "Fair",
+      shade: "Medium",
+    },
+    {
+      id: "rb-248",
+      name: "Reactive Blue 248 ME2GL",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Blue 248 ME2GL.png",
+      ciName: "Reactive Blue 248",
+      casNo: "12236-92-9",
+      substantivity: "High",
+      solubility: "100",
+      dischargeability: "Poor",
+      shade: "Medium",
+    },
+    {
+      id: "rbr-18",
+      name: "Reactive Brown 18",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Brown 18.png",
+      ciName: "Reactive Brown 18",
+      casNo: "12225-73-9",
+      substantivity: "Medium",
+      solubility: "100",
+      dischargeability: "Fair",
+      shade: "Deep",
+    },
+    {
+      id: "ro-16",
+      name: "Reactive Orange 16 3R",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Orange 16 3R.png",
+      ciName: "Reactive Orange 16",
+      casNo: "12225-83-1",
+      substantivity: "High",
+      solubility: "80",
+      dischargeability: "Good",
+      shade: "Light",
+    },
+    {
+      id: "rr-198",
+      name: "Reactive Red 198",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Red 198.png",
+      ciName: "Reactive Red 198",
+      casNo: "145017-98-7",
+      substantivity: "Medium",
+      solubility: "100",
+      dischargeability: "Fair",
+      shade: "Deep",
+    },
+    {
+      id: "rv-5",
+      name: "Reactive Violet 5 5R",
+      group: "reactiveDyes",
+      imageSrc: "assets/Reactive Violet 5 5R.png",
+      ciName: "Reactive Violet 5",
+      casNo: "12226-38-9",
+      substantivity: "Medium",
+      solubility: "100",
+      dischargeability: "Poor",
+      shade: "Deep",
+    },
+  ];
+
   const pigments = [
     {
       id: "pb-15-0",
@@ -130,90 +241,136 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  // Render pigment cards into product page grids
+  // Render reactive dyes and pigment cards into product page grids
+  const reactiveDyesGrid = document.getElementById("reactive-dyes-grid");
   const phthaloGrid = document.getElementById("phthalocyanine-grid");
   const highPerfGrid = document.getElementById("high-performance-grid");
 
-  if (phthaloGrid && highPerfGrid) {
-    const createPigmentCard = (pigment) => {
-      const card = document.createElement("article");
-      card.className = "card pigment-card fade-in-on-scroll";
+  const createPigmentCard = (item) => {
+    const card = document.createElement("article");
+    card.className = "card pigment-card fade-in-on-scroll";
 
-      const imageWrapper = document.createElement("div");
-      imageWrapper.className = "pigment-card-image-wrapper";
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "pigment-card-image-wrapper";
 
-      const img = document.createElement("img");
-      img.src = pigment.imageSrc;
-      img.alt = pigment.name;
-      imageWrapper.appendChild(img);
+    const img = document.createElement("img");
+    img.src = item.imageSrc;
+    img.alt = item.name;
+    imageWrapper.appendChild(img);
 
-      const body = document.createElement("div");
-      body.className = "pigment-card-body";
+    const body = document.createElement("div");
+    body.className = "pigment-card-body";
 
-      const title = document.createElement("h3");
-      title.className = "pigment-card-title";
-      title.textContent = pigment.name;
+    const title = document.createElement("h3");
+    title.className = "pigment-card-title";
+    title.textContent = item.name;
 
-      const detailsButton = document.createElement("button");
-      detailsButton.type = "button";
-      detailsButton.className = "btn btn-outline pigment-details-btn";
-      detailsButton.textContent = "View details";
-      detailsButton.setAttribute("data-pigment-id", pigment.id);
+    const detailsButton = document.createElement("button");
+    detailsButton.type = "button";
+    detailsButton.className = "btn btn-outline pigment-details-btn";
+    detailsButton.textContent = "View details";
+    detailsButton.setAttribute("data-item-id", item.id);
 
-      body.appendChild(title);
-      body.appendChild(detailsButton);
+    body.appendChild(title);
+    body.appendChild(detailsButton);
 
-      card.appendChild(imageWrapper);
-      card.appendChild(body);
+    card.appendChild(imageWrapper);
+    card.appendChild(body);
 
-      return card;
-    };
+    return card;
+  };
 
-    // Function to open modal with pigment data
-    const openPigmentModal = (pigment) => {
-      if (!productModal || !productModalTitle || !productModalBody) {
-        return;
-      }
+  // Function to open modal with reactive dye or pigment data
+  const openItemModal = (item) => {
+    if (!productModal || !productModalTitle || !productModalBody) {
+      return;
+    }
 
-      // Set modal content
-      productModalTitle.textContent = pigment.name;
-      productModalBody.innerHTML = `
+    // Set modal content based on item type
+    productModalTitle.textContent = item.name;
+    
+    let detailsHTML = '';
+    if (item.group === 'reactiveDyes') {
+      // Reactive Dye details
+      detailsHTML = `
         <div class="pigment-modal-content">
           <div class="pigment-modal-details">
             <ul class="product-list">
-              <li><strong>C.I. No:</strong> ${pigment.ciNo}</li>
-              <li><strong>CAS No:</strong> ${pigment.casNo}</li>
-              <li><strong>EINECS No.:</strong> ${pigment.einecsNo}</li>
-              <li><strong>Pigment Class:</strong> ${pigment.pigmentClass}</li>
-              <li><strong>Application:</strong> ${pigment.application}</li>
+              <li><strong>CI. NAME:</strong> ${item.ciName}</li>
+              <li><strong>CAS No:</strong> ${item.casNo}</li>
+              <li><strong>Substantivity:</strong> ${item.substantivity}</li>
+              <li><strong>Solubility at 30° C:</strong> ${item.solubility}</li>
+              <li><strong>Dischargeability:</strong> ${item.dischargeability}</li>
+              <li><strong>Shade:</strong> ${item.shade}</li>
             </ul>
           </div>
           <div class="pigment-modal-image">
-            <img src="${pigment.imageSrc}" alt="${pigment.name}" style="object-fit: contain; background: transparent;" />
+            <img src="${item.imageSrc}" alt="${item.name}" style="object-fit: contain; background: transparent;" />
           </div>
         </div>
       `;
-      
-      // Ensure modal content container is visible
-      const modalContentBox = productModal.querySelector('.product-modal');
-      if (modalContentBox) {
-        modalContentBox.style.display = "block";
-        modalContentBox.style.visibility = "visible";
-      }
-      
-      // Move modal to body to escape any transform containers
-      // This ensures position: fixed works relative to viewport, not a transformed parent
-      if (productModal.parentElement !== document.body) {
-        document.body.appendChild(productModal);
-      }
-      
-      // Open modal - CSS animations will handle the transition
-      productModal.style.display = "flex";
-      productModal.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-    };
+    } else {
+      // Pigment details
+      detailsHTML = `
+        <div class="pigment-modal-content">
+          <div class="pigment-modal-details">
+            <ul class="product-list">
+              <li><strong>C.I. No:</strong> ${item.ciNo}</li>
+              <li><strong>CAS No:</strong> ${item.casNo}</li>
+              <li><strong>EINECS No.:</strong> ${item.einecsNo}</li>
+              <li><strong>Pigment Class:</strong> ${item.pigmentClass}</li>
+              <li><strong>Application:</strong> ${item.application}</li>
+            </ul>
+          </div>
+          <div class="pigment-modal-image">
+            <img src="${item.imageSrc}" alt="${item.name}" style="object-fit: contain; background: transparent;" />
+          </div>
+        </div>
+      `;
+    }
+    
+    productModalBody.innerHTML = detailsHTML;
+    
+    // Ensure modal content container is visible
+    const modalContentBox = productModal.querySelector('.product-modal');
+    if (modalContentBox) {
+      modalContentBox.style.display = "block";
+      modalContentBox.style.visibility = "visible";
+    }
+    
+    // Move modal to body to escape any transform containers
+    // This ensures position: fixed works relative to viewport, not a transformed parent
+    if (productModal.parentElement !== document.body) {
+      document.body.appendChild(productModal);
+    }
+    
+    // Open modal - CSS animations will handle the transition
+    productModal.style.display = "flex";
+    productModal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  };
 
-    // Create cards and attach listeners directly
+  // Create reactive dye cards
+  if (reactiveDyesGrid) {
+    reactiveDyes.forEach((dye) => {
+      const card = createPigmentCard(dye);
+      const btn = card.querySelector(".pigment-details-btn");
+      
+      // Attach click listener directly to each button
+      if (btn && productModal) {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openItemModal(dye);
+        });
+      }
+      
+      reactiveDyesGrid.appendChild(card);
+    });
+  }
+
+  // Create pigment cards and attach listeners directly
+  if (phthaloGrid && highPerfGrid) {
     pigments.forEach((pigment) => {
       const card = createPigmentCard(pigment);
       const btn = card.querySelector(".pigment-details-btn");
@@ -223,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
-          openPigmentModal(pigment);
+          openItemModal(pigment);
         });
       }
       
