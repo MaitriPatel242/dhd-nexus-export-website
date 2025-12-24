@@ -11,6 +11,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/Favicon.png" />
+    <link rel="icon" type="image/png" sizes="256x256" href="assets/Favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/Favicon.png" />
+    <link rel="icon" type="image/png" sizes="128x128" href="assets/Favicon.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/Favicon.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/Favicon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/Favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/Favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/Favicon.png" />
@@ -93,21 +99,28 @@
             
             <div class="contact-form-modern">
               <h2>Send Message</h2>
+              <!-- 
+                EASY SETUP (Just 2 steps!):
+                1. Go to: https://web3forms.com
+                2. Enter email: maitri240205@gmail.com and get your key
+                3. Replace "YOUR_ACCESS_KEY" below with your key
+              -->
               <form
                 id="contact-form"
                 class="contact-form"
                 action="https://api.web3forms.com/submit"
                 method="POST"
               >
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
-                <input type="hidden" name="subject" value="New Contact Form Submission from DHD NEXUS Website" />
-                <input type="hidden" name="from_name" value="DHD NEXUS Contact Form" />
+             <input type="hidden" name="access_key" value="10b31d2c-90fd-4648-80c9-8f97018c874f" />
+                <input type="hidden" name="subject" value="📧 New Contact Form Submission - DHD NEXUS" />
+                <input type="hidden" name="from_name" value="DHD NEXUS Website" />
+                <input type="hidden" name="to_email" value="maitri240205@gmail.com" />
                 <input type="hidden" name="redirect" value="false" />
                 
                 <div class="form-field-modern">
                   <input type="text" id="name" name="name" placeholder="Full Name" required />
                 </div>
-                <div class="form-field-modern">
+                <div class="form-field-modern">   
                   <input type="email" id="email" name="email" placeholder="Email" required />
                 </div>
                 <div class="form-field-modern">

@@ -384,8 +384,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Check if access key is configured
       if (!accessKeyInput || accessKeyInput.value === "YOUR_ACCESS_KEY") {
-        formStatus.textContent =
-          "Email service is not configured. Please contact us directly at info@dhdnexus.com";
+        formStatus.innerHTML =
+          "⚠️ Setup Required: <br>1. Go to <a href='https://web3forms.com' target='_blank' style='color: #3b82f6; text-decoration: underline;'>web3forms.com</a><br>2. Enter: maitri240205@gmail.com<br>3. Copy the key and replace 'YOUR_ACCESS_KEY' in contact.html";
         formStatus.classList.remove("form-status--success");
         formStatus.classList.add("form-status--error");
         formStatus.style.display = "block";
@@ -406,20 +406,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Prepare form data
         const formData = new FormData(contactForm);
         
-        // Add custom email formatting for better readability
-        const company = contactForm.querySelector("#company").value.trim();
-        const phone = contactForm.querySelector("#phone").value.trim();
-        const country = contactForm.querySelector("#country").value.trim();
-        
-        // Format the message body with all fields
-        let formattedMessage = `Name: ${name.value.trim()}\n`;
-        formattedMessage += `Email: ${email.value.trim()}\n`;
-        if (phone) formattedMessage += `Phone: ${phone}\n`;
-        if (company) formattedMessage += `Company: ${company}\n`;
-        if (country) formattedMessage += `Country: ${country}\n\n`;
-        formattedMessage += `Message:\n${message.value.trim()}`;
-        
-        formData.set("message", formattedMessage);
+        // Keep the original message - Web3Forms will format it in their template
+        // Don't modify the message field, let Web3Forms handle the formatting
 
         // Send to Web3Forms
         const response = await fetch("https://api.web3forms.com/submit", {
@@ -442,7 +430,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (error) {
         console.error("Web3Forms Error:", error);
         formStatus.textContent =
-          "Sorry, there was an error sending your message. Please try again or email us directly at info@dhdnexus.com";
+          "Sorry, there was an error sending your message. Please try again or email us directly at maitri240205@gmail.com";
         formStatus.classList.remove("form-status--success");
         formStatus.classList.add("form-status--error");
       } finally {
